@@ -1,92 +1,18 @@
 
 <html>
-<head>
-<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
-<style>
-
-html {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-    margin:0;
-    background-color:black;;
-
-}
-
-#wrapper {
-    margin:30px;
-    position: relative;
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    flex-direction:column;
-    flex-wrap:wrap;
-
-}
-.draggable {
-  border:5px solid red;
-  border-radius:50%;
-  background:rgba(0,0,0,0);
-  color:white;
-  width:30px;
-  height:30px;
-  text-align:center;
-  line-height:30px;
-  touch-action: none;
-  user-select: none;
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-  color:red;
-  position: absolute;
-  z-index: 99999;
-}
-
-#svg{
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  margin:auto;
-}
-
-#image {
-    position:absolute;
-    top:0;
-    left:0;
-    padding:20px;
-    clip-path: url(#fogOfWar);
-    -webkit-clip-path: url(#fogOfWar);
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 70vw;
-    max-height:70vh;
- 
-}
-
-input {
-    align-self:flex-end;
-    order:5;
-    margin-top:2rem;
-    font-size:2rem;
-
-}
-</style>
-</head>
-<body>
-
+   <head>
+       <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
+       <link rel="stylesheet" href="styles.css">
+   </head>
+   
+   <body>
     <div id="wrapper">
        <div id="p1" class="draggable">1</div>
        <div id="p2" class="draggable">2</div>
        <div id="p3" class="draggable">3</div>
        <div id="p4" class="draggable">4</div>
 
-
        <img id="image" src="https://i.stack.imgur.com/RvM2m.jpg">
-
 
        <svg id="svg">
            <defs>
@@ -137,14 +63,17 @@ $(function(){
      $('#wrapper').css('width',w);
      $('#wrapper').css('height',h);
      
+     /* 
      console.log('height: '+h);
      console.log('width: '+w);
      console.log('original-width:' + i.naturalWidth);
      console.log('original-height:' + i.naturalHeight);
+     console.log('Scaling factor(h):' + scaling_factor_h);
+     console.log('Scaling factor(w):' + scaling_factor_w); 
+     */
+     
      scaling_factor_w= i.naturalWidth / w;
      scaling_factor_h= i.naturalWidth / h;
-     console.log('Scaling factor(h):' + scaling_factor_h);
-     console.log('Scaling factor(w):' + scaling_factor_w);
     
     
      var  svg = $("svg").get(0);
@@ -212,8 +141,8 @@ interact('.draggable').draggable({
   onmove: dragMoveListener,
   listeners: {
     move (event) {
-      console.log(event.pageX,
-                  event.pageY)
+      /* console.log(event.pageX,
+                  event.pageY) */
     }
   }
 })
@@ -250,5 +179,5 @@ function dragMoveListener (event) {
     
 }
 </script>
-</body
+</body>
 </html>
