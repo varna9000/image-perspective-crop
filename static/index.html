@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+    <title>Document Perspective Corrector</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Document Perspective Corrector</h1>
+
+    <div>
+        <label for="imageUpload">Upload Document Image:</label>
+        <input type="file" id="imageUpload" accept="image/*">
+    </div>
+
+    <div id="wrapper">
+        <div id="p1" class="draggable">1</div>
+        <div id="p2" class="draggable">2</div>
+        <div id="p3" class="draggable">3</div>
+        <div id="p4" class="draggable">4</div>
+
+        <img id="imageToCrop" src="#" alt="Uploaded Document" style="display:none;">
+
+        <svg id="svgOverlay">
+            <path id="fogPath" fill-rule="evenodd" fill="rgba(0,0,0,0.5)" stroke="red" stroke-width="1"/>
+        </svg>
+    </div>
+
+    <button id="submitBtn">Process Image</button>
+
+    <h2>Processed Image:</h2>
+    <img id="processedImage" src="#" alt="Processed Document" style="display:none; max-width: 100%;">
+    <p id="statusMessage"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="module" src="/static/app.js"></script>
+</body>
+</html>
